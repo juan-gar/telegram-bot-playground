@@ -1,7 +1,9 @@
 const request = require('request')
 
+const weatherKey = process.env.WEATHER_APIKEY
+
 const forecast = (lat,lon,callback) => {
-    const url = `https://api.darksky.net/forecast/11c7549b95a06a135f4013a3baefaa16/${lat},${lon}?units=si`
+    const url = `https://api.darksky.net/forecast/${weatherKey}/${lat},${lon}?units=si`
 
     request( { url, json:true }, (error,response) =>{
         if(error){
